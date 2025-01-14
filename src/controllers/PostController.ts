@@ -86,5 +86,28 @@ export async function getPostById(id: string) {
  */
 
 export async function updatePost(id: string, options: {title?: string; content?: string}) {
-    
+    try {
+        // konversi data id ke int
+        const postId = parseInt(id);
+
+        // ambil data title dan content
+        const { title, content } = options;
+
+        // update data
+        const post = await prisma.post.update({
+            where: {id : postId},
+            data: {
+                ... (title ? { title } : {}),
+                ... (content ? { content } : {})
+            }
+        });
+
+        return {
+            success: true,
+            message: "Post update successfully!",
+            data: post,
+        }
+    } catch (e: unknown) {
+        console.error(`Error update post: ${id}`);
+    }   
 }
