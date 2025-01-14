@@ -115,5 +115,22 @@ export async function updatePost(id: string, options: {title?: string; content?:
  * delete post
  */
 export async function deletePost(id: string) {
+    try {
 
+        // Konversi tipe id menjadi number
+        const postId = parseInt(id);
+
+        //delete post with prisma
+        await prisma.post.delete({
+            where: { id: postId },
+        });
+
+        //return response json
+        return {
+            success: true,
+            message: "Post Deleted Successfully!",
+        }
+    } catch (e: unknown) {
+        console.error(`Error deleting post: ${e}`);
+    }
 }
