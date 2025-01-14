@@ -75,8 +75,16 @@ export async function getPostById(id: string) {
             message: `Detail Data Post: ${postId}`,
             data: post
         }
-        
+
     }catch(e: unknown) {
         console.error(`Error finding post: ${e}`);
     }
+}
+
+/**
+ *  update as post
+ */
+
+export async function updatePost(id: string, options: {title?: string; content?: string}) {
+    
 }
