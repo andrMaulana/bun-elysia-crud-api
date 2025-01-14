@@ -111,3 +111,9 @@ export async function updatePost(id: string, options: {title?: string; content?:
         console.error(`Error update post: ${id}`);
     }   
 }
+/**
+ * delete post
+ */
+export async function deletePost(id: string) {
+
+}
