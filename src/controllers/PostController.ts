@@ -107,10 +107,12 @@ export async function updatePost(id: string, options: {title?: string; content?:
             message: "Post update successfully!",
             data: post,
         }
+        
     } catch (e: unknown) {
         console.error(`Error update post: ${id}`);
     }   
 }
+
 /**
  * delete post
  */
