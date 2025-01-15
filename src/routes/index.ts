@@ -5,6 +5,7 @@ const Routes = new Elysia({prefix: '/posts'})
 
     // get all data
     .get('/', () => getPosts())
+
     // route create data post
     .post('/', ({body}) => createPost(body as { title: string; content: string }), {
         body: t.Object({
@@ -18,8 +19,10 @@ const Routes = new Elysia({prefix: '/posts'})
             }),
         })
     })
+
     // get data by id
     .get('/:id', ({params: { id }}) => getPostById(id))
+    
     // update post
     .patch('/:id', ({params: {id}, body}) => updatePost(id, body as {title?: string; content?: string}), {
         body: t.Object({
