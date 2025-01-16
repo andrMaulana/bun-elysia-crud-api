@@ -15,7 +15,7 @@ export async function getPosts(){
             data: posts,
         };
     }catch (e: unknown) {
-        console.error(`Error getting posts: ${e}`);
+        console.error(`Error mendapatkan data posts: ${e}`);
     }
 }
 
