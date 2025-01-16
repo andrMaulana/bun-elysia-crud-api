@@ -40,7 +40,7 @@ export async function createPost(options: {title: string, content: string}) {
         // return response
         return {
             success: true,
-            message: "Post Created Successfully!",
+            message: "Data Post Berhasil Dibuat!",
             data: post,
         }
     }catch(e: unknown) {
